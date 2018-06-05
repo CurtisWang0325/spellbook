@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 <body>
-    <h1>SpellBook</h1>
-    <button>Change Text</button>
+    <h1 id='head1'>Heading1</h1>
+    <h1 id='head2'>Heading2</h1>
+    <button>Change Heading2</button>
+    <form onsubmit="return false">
+        <br>
+        Change Heading1 to:
+        <input type="text" name='input1' id=input>
+        <button id="submit">Submit</button>
+    </form>
+    <script src="index.js"></script>
 </body>
 </html>
