@@ -9,19 +9,28 @@ function getLevel(ev){
     return ev.target.level.value
 }
 
-function write(newSpellName){
+function insert(li,toAdd){
+    const tempName=document.createElement('span')
+    tempName.textContent=toAdd;
+    li.appendChild(tempName)
+}
+
+function write(name,level){
     const spellsDiv = document.querySelector('#spells')
-    const toAdd = document.createElement('li')
-    toAdd.textContent=newSpellName
-    spellsDiv.appendChild(toAdd)
+    const templi = document.createElement('li')
+    insert(templi,name)
+    insert(templi,level)
+    
+    spellsDiv.appendChild(templi)
     
 }
+
 
 const addSpell = function(ev) {
   ev.preventDefault()
   const newSpellName = getName(ev)
   const newSpellLevel = getLevel(ev)
-  write(`${newSpellName} is level ${newSpellLevel}`)
+  write(newSpellName,newSpellLevel)
   ev.target.reset()
 }
 
