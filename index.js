@@ -1,11 +1,16 @@
-console.log('testing')
-const heading1 = document.querySelector('#head1')
-const heading2 = document.querySelector('#head2')
-const button = document.querySelector('button')
-button.addEventListener('click',(ev)=>{
-    heading2.textContent="Changed";
-})
-const submit = document.querySelector('#submit')
-submit.addEventListener('click',(ev)=>{ 
-    heading1.textContent=document.getElementById('input').value;
-})
+
+const form = document.querySelector('form')
+
+const changeHeading = function(ev) {
+  ev.preventDefault()
+
+  const f = ev.target
+  const spellName = f.spellName.value
+
+  const spellsDiv = document.querySelector('#spells')
+  spellsDiv.innerHTML += `<li>${spellName}</li>`
+
+  f.reset()
+}
+
+form.addEventListener('submit', changeHeading)

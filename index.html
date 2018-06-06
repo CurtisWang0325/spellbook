@@ -8,15 +8,27 @@
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 <body>
-    <h1 id='head1'>Heading1</h1>
-    <h1 id='head2'>Heading2</h1>
-    <button>Change Heading2</button>
-    <form onsubmit="return false">
-        <br>
-        Change Heading1 to:
-        <input type="text" name='input1' id=input>
-        <button id="submit">Submit</button>
+    <img src="skull.png" id="skull" alt="">
+    <img src="quill.png" id="quill" alt="">
+    
+    <h1>SpellBook</h1>
+    
+    <form>
+        <div>
+            <input 
+                type="text"
+                name="spellName"
+                placeholder="Enter a spell name"
+                autofocus
+            >
+            <button type= "submit">Add</button>
+        </div>
     </form>
+    
+    <main>
+        <ul id= "spells"></ul>
+    </main>
+
     <script src="index.js"></script>
 </body>
 </html>
