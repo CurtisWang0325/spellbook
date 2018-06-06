@@ -25,6 +25,11 @@ img#quill {
   width: 20vw;
 }
 
+img#fire {
+    position: inherit;
+    width: 30px;    
+}
+
 h1 {
   font-family: UnifrakturCook, serif;
   margin-left: 10vw;

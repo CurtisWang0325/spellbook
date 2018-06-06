@@ -9,20 +9,28 @@ function getLevel(ev){
     return ev.target.level.value
 }
 
-function insert(li,toAdd){
+function addName(li,toAdd){
     const tempName=document.createElement('span')
     tempName.textContent=toAdd;
     li.appendChild(tempName)
 }
 
+function addLevel(li,level){
+    const tempImage=document.createElement('img')
+    tempImage.src="fire.png"
+    tempImage.id="fire"   
+    li.appendChild(tempImage)
+    
+}
+
 function write(name,level){
     const spellsDiv = document.querySelector('#spells')
     const templi = document.createElement('li')
-    insert(templi,name)
-    insert(templi,level)
-    
+    addName(templi,name)
+    for(let l=0;l<level;l++){
+        addLevel(templi,level)
+    }
     spellsDiv.appendChild(templi)
-    
 }
 
 
