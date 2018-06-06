@@ -1,25 +1,27 @@
 
 const form = document.querySelector('form')
 
-function getInput(ev){
+function getName(ev){
     return ev.target.spellName.value
 }
 
-function write(newSpell){
+function getLevel(ev){
+    return ev.target.level.value
+}
+
+function write(newSpellName){
     const spellsDiv = document.querySelector('#spells')
     const toAdd = document.createElement('li')
-    toAdd.textContent=newSpell
+    toAdd.textContent=newSpellName
     spellsDiv.appendChild(toAdd)
     
 }
 
 const addSpell = function(ev) {
   ev.preventDefault()
-
-//  const f = ev.target
-//  const spellName = f.spellName.value
-  const newSpell = getInput(ev)
-  write(newSpell)
+  const newSpellName = getName(ev)
+  const newSpellLevel = getLevel(ev)
+  write(`${newSpellName} is level ${newSpellLevel}`)
   ev.target.reset()
 }
 
