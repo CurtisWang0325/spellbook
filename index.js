@@ -8,7 +8,9 @@ const changeHeading = function(ev) {
   const spellName = f.spellName.value
 
   const spellsDiv = document.querySelector('#spells')
-  spellsDiv.innerHTML += `<li>${spellName}</li>`
+  const toAdd = document.createElement('li')
+  toAdd.textContent=spellName
+  spellsDiv.appendChild(toAdd)
 
   f.reset()
 }
