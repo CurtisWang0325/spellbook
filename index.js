@@ -1,46 +1,55 @@
-
-const form = document.querySelector('form')
-
-function getName(ev){
-    return ev.target.spellName.value
-}
-
-function getLevel(ev){
-    return ev.target.level.value
-}
-
-function addName(li,toAdd){
-    const tempName=document.createElement('span')
-    tempName.textContent=toAdd;
-    li.appendChild(tempName)
-}
-
-function addLevel(li,level){
-    const tempImage=document.createElement('img')
-    tempImage.src="fire.png"
-    tempImage.id="fire"   
-    li.appendChild(tempImage)
-    
-}
-
-function write(name,level){
-    const spellsDiv = document.querySelector('#spells')
-    const templi = document.createElement('li')
-    addName(templi,name)
-    for(let l=0;l<level;l++){
-        addLevel(templi,level)
-    }
-    spellsDiv.appendChild(templi)
-}
-
-
-const addSpell = function(ev) {
-  ev.preventDefault()
-  const newSpellName = getName(ev)
-  const newSpellLevel = getLevel(ev)
-  write(newSpellName,newSpellLevel)
-  ev.target.reset()
-}
-
-
-form.addEventListener('submit', addSpell)
+const app = {
+    init: function() {
+      const form = document.querySelector('form')
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault()
+        this.handleSubmit(ev)
+      })
+    },
+  
+    renderProperty: function(name, value) {
+      const el = document.createElement('span')
+      el.classList.add(name)
+      el.textContent = value
+      el.setAttribute('title', value)
+      return el
+    },
+  
+    renderItem: function(spell) {
+      // ['name', 'level']
+      const properties = Object.keys(spell)
+  
+      // collect an array of <span> elements
+      const childElements = properties.map((prop) => {
+        return this.renderProperty(prop, spell[prop])
+      })
+  
+      const item = document.createElement('li')
+      item.classList.add('spell')
+  
+      // append each <span> to the <li>
+      childElements.forEach(function(el) {
+        item.appendChild(el)
+      })
+  
+      return item
+    },
+  
+    handleSubmit: function(ev) {
+      const f = ev.target
+  
+      const spell = {
+        name: f.spellName.value,
+        level: f.level.value,
+      }
+  
+      const item = this.renderItem(spell)
+  
+      const list = document.querySelector('#spells')
+      list.appendChild(item)
+  
+      f.reset()
+    },
+  }
+  
+  app.init()
