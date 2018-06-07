@@ -31,6 +31,8 @@ const app = {
     
     const deleteButton = document.createElement("button")
     deleteButton.textContent="X"
+    deleteButton.style.height='30px'
+
     deleteButton.addEventListener('click',()=>{
         item.parentNode.removeChild(item);
         this.spellList.splice(this.spellList.indexOf(spell),1)
