@@ -25,14 +25,22 @@ const app = {
     const childElements = properties.map((prop) => {
       return this.renderProperty(prop, spell[prop])
     })
-
+ 
     const item = document.createElement('li')
     item.classList.add('spell')
+    
+    const deleteButton = document.createElement("button")
+    deleteButton.textContent="X"
+    deleteButton.addEventListener('click',()=>{
+        item.parentNode.removeChild(item);
+        this.spellList.splice(this.spellList.indexOf(spell),1)
+    })
 
     // append each <span> to the <li>
     childElements.forEach(function(el) {
       item.appendChild(el)
     })
+    item.appendChild(deleteButton)
 
     return item
   },
