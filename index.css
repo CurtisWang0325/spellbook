@@ -156,3 +156,26 @@ input.small {
 .level {
   color: red;
 }
+
+button.delete {
+  background-color: #ff3333;
+  color: white;
+}
+
+button.fav {
+  background-color: #F8BE3D;
+  color: black;
+}
+
+button.move {
+  background-color: #3366FF;
+  color: white;
+}
+
+.template {
+  display: none;
+}
+
+.spell.fav {
+  background-color: goldenrod;
+}
